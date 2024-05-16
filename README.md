@@ -72,7 +72,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 1. Saves screenshot to clipboard
 2. Toggles broadcast title/action safety guides
-3. Estimated frame count - *See notes at the end*
+3. Estimated frame count - *See notes*
 4. Loads a folder to playlist + navigate up/down that list
 5. Moves to beginning (end) of clip
 6. Moves back (ahead) 1 second.
