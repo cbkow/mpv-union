@@ -129,3 +129,19 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 ## Additional Notes
 
+This mpv setup uses several external binaries for transcoding (FFMPEG), EXR extraction (OIIO), and reading metadata (ExifTool). The mpv config folder includes the binaries to simplify an install (hence the large download size). 
+
+The After Effects and Premiere Finder plugins rely on optional software-written metadata. To use them, check your render templates and program preferences to ensure they are enabled. 
+
+MPV isn't aware of frames in videos, so the frame count is generated on the fly by multiplying fps and duration--hence the "estimation." It then rounds up/down the frame values to a whole number. It can occasionally be one frame off compared to a DCC or NLE in framerates, such as 23.976 or 29.97. Most video players are like this, but it's worth mentioning. 
+
+The EXR extraction uses ACES 1.2 or Blender 4.1 OCIO configs directly in OpenImageIO. The transcoding, playback, and playback color space transforms use LUTs, which are generated with ociotools using those same configurations. 
+
+The LUT workflow could be more efficient for a few reasons. Quality is one of them, but also MPV doesn't allow for on-the-fly LUT swapping. I am getting around that by launching another instance of MPV and closing the old one--attempting to capture playback and window size/positions and transferring that to the new MPV instance. This process is a can of worms. To capture mpv's positioning, the plugin has to account for DPI-scaling and then calculate that location. There is a performance penalty to it that I don't love. 
+
+Additionally, this may not work well in dual-monitor setups where different panels use different DPI scaling. Is it worth the hit? Switching colorspaces is lightning fast without it, and it may be better to just let the player load in the middle of the screen each time it swaps LUTs. 
+
+Because of the LUT workflow, these tools are meant for quick reviews and fast client postings. Please don't use them for any final deliveries. Under certain circumstances, they don't have exact perceptual parity to a fully color-managed workflow in compositing. 
+
+With all that said, GLSL shaders would be a better method than using LUTs in playback and transcoding. It would increase the quality of the outputs and also eliminate the need to relaunch mpv on LUT changes. Check out natural-harmonia-groupius' hdr-toys project: https://github.com/natural-harmonia-gropius/hdr-toys. The ACES shaders in hdr-toys work great. I would need rec.1886 to sRGB and AgX shaders to complete the package and shift strategies. 
+
