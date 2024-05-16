@@ -126,7 +126,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 - Additionally, this may not work well in dual-monitor setups where different panels use different DPI scaling. Is it worth the hit? Switching colorspaces is lightning fast without it, and it may be better to just let the player load in the middle of the screen each time it swaps LUTs. 
 
-- Because of the LUT workflow, these tools are meant for quick reviews and fast client postings. Please don't use them for any final deliveries. Under certain circumstances, they don't have exact perceptual parity to a fully color-managed workflow in compositing. 
+- Because of the LUT workflow, these tools are meant for quick reviews and fast client postings. Please don't use them for any final deliveries. Under certain circumstances, they might not have exact perceptual parity to a fully color-managed workflow in compositing. 
 
 - With all that said, GLSL shaders would be a better method than using LUTs in playback and transcoding. It would increase the quality of the outputs and also eliminate the need to relaunch mpv on LUT changes. Check out natural-harmonia-groupius' hdr-toys project: https://github.com/natural-harmonia-gropius/hdr-toys. The ACES shaders in hdr-toys work great. I would need rec.1886 to sRGB and AgX shaders to complete the package and shift strategies. 
 
