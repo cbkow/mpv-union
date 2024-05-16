@@ -50,7 +50,7 @@
  - Copy all the files from the downloaded `mpv` folder to the `mpv` folder in appdata. 
 
 ---
-### Using Chocolatey (reccomended)
+### Using Chocolatey (recommended)
  Chocolatey is a package manager for Windows. The advantage of installing MPV this way is two-fold: (1) It will automatically add MPV to your path. (2) Updates are effortless.
 
 #### 1. Install Chocolatey
