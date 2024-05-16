@@ -1,0 +1,1 @@
+Get-ItemProperty -path "HKCU:\Control Panel\Desktop\WindowMetrics" | fl AppliedDPI
