@@ -122,7 +122,7 @@ We always render in rec.709 (gamma 2.4 or rec.1886), so by default, this config 
 
 - MPV isn't aware of frames in videos, so the frame count is generated on the fly by multiplying fps and duration--hence the "estimation." It then rounds up/down the frame values to a whole number. It can occasionally be one frame off compared to a DCC or NLE in framerates, such as 23.976 or 29.97. Most video players are like this, but it's worth mentioning. 
 
-- The EXR extraction uses ACES 1.2 or Blender 4.1 OCIO configs directly in OpenImageIO. The transcoding, playback, and playback color space transforms use LUTs, which are generated with ociotools using those same configurations. 
+- The EXR extraction uses ACES 1.2 or Blender 4.1 OCIO configs directly in OpenImageIO. The transcoding, playback, and playback color space transforms use LUTs, which are generated with ociobakelut using those same configurations. 
 
 - The LUT workflow could be more efficient for a few reasons. Quality is one of them, but also MPV doesn't allow for on-the-fly LUT swapping. I am getting around that by launching another instance of MPV and closing the old one--attempting to capture playback and window size/positions and transferring that to the new MPV instance. This process is a can of worms. To capture mpv's positioning, the plugin has to account for DPI-scaling and then calculate that location. There is a performance penalty to it that I don't love. 
 
