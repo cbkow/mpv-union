@@ -145,5 +145,5 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 - With all that said, GLSL shaders would be a better method than using LUTs in playback and transcoding. It would increase the quality of the outputs and also eliminate the need to relaunch mpv on LUT changes. Check out natural-harmonia-groupius' hdr-toys project: https://github.com/natural-harmonia-gropius/hdr-toys. The ACES shaders in hdr-toys work great. I would need rec.1886 to sRGB and AgX shaders to complete the package and shift strategies. 
 
-- The final note: I have a very strict naming convention for files that only include letters, dashes, and underscores without spaces. I tried to avoid escaping paths to accommodate other workflows, but YMMV. I am sure I missed something. 
+- The final note: I have a very strict naming convention for files that only include letters, dashes, and underscores without spaces. I tried to avoid possible issues by escaping paths to accommodate other workflows, but YMMV. I am sure I missed something. 
 
