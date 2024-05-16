@@ -1,5 +1,5 @@
 # mpv-union
- mpv setup and config for VFX
+ mpv setup and config for VFX (Windows only)
 
 ![mpv-union](img/mpv-union_001.jpg)
 
