@@ -3,22 +3,9 @@
 
 ![mpv-union](img/mpv-union_001.jpg)
 
-## Credits
- Included binaries and mpv plugins:
-
-- https://github.com/ObserverOfTime/mpv-scripts/blob/master/clipshot.lua
-- https://exiftool.org/
-- https://ffmpeg.org/
-- https://github.com/CogentRedTester/mpv-user-input
-- https://github.com/tsl0922/mpv-menu-plugin
-- https://github.com/maoiscat/mpv-osc-framework
-- https://opencolorio.org/
-- https://github.com/AcademySoftwareFoundation/OpenImageIO
-
 ## Install guide
 
-
-### Manually
+### Manually (not recommended)
 
 #### 1. Download and Install
 - Download the latest *shinchiro* release: https://mpv.io/installation/
@@ -126,9 +113,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 - **Transcode to MP4** — This menu option functions like the video transcoding options but for image sequences. It works if you have loaded the whole sequence or only one image from that sequence. Before transcoding, the plugin will request a frame rate and a starting frame number. The starting frame number is essential for it to function as intended. Like the EXR extracting plugins, clean folder structures are needed--the plugin makes some assumptions about folder structure. It will render an MP4 to the sequence's parent folder so that it's not lost in a sequence folder. 
 
-
-## Additional notes /ramblings
-
+## Additional notes
 - This mpv setup uses several external binaries for transcoding (FFMPEG), EXR extraction (OIIO), and reading metadata (ExifTool). The mpv config folder includes the binaries to simplify an install (hence the large download size). 
 
 - The After Effects and Premiere Finder plugins rely on optional software-written metadata. To use them, check your render templates and program preferences to ensure they are enabled. 
@@ -146,4 +131,16 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 - With all that said, GLSL shaders would be a better method than using LUTs in playback and transcoding. It would increase the quality of the outputs and also eliminate the need to relaunch mpv on LUT changes. Check out natural-harmonia-groupius' hdr-toys project: https://github.com/natural-harmonia-gropius/hdr-toys. The ACES shaders in hdr-toys work great. I would need rec.1886 to sRGB and AgX shaders to complete the package and shift strategies. 
 
 - The final note: I have a very strict naming convention for files that only include letters, dashes, and underscores without spaces. I tried to avoid possible issues by escaping paths to accommodate other workflows, but YMMV. I am sure I missed something. 
+
+## Credits
+ Included binaries and mpv plugins:
+
+- https://github.com/ObserverOfTime/mpv-scripts/blob/master/clipshot.lua
+- https://exiftool.org/
+- https://ffmpeg.org/
+- https://github.com/CogentRedTester/mpv-user-input
+- https://github.com/tsl0922/mpv-menu-plugin
+- https://github.com/maoiscat/mpv-osc-framework
+- https://opencolorio.org/
+- https://github.com/AcademySoftwareFoundation/OpenImageIO
 
