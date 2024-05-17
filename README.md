@@ -10,7 +10,7 @@
 #### 1. Download and Install
 - Download the latest *shinchiro* release: https://mpv.io/installation/
 
-- Extract the package and move it to a `mpv' folder in a permanent location--anywhere is fine.  
+- Extract the package and move it to a `mpv` folder in a permanent location--anywhere is fine.  
 
 - Right-click on `mpv/installer/mpv-install.bat` in your new mpv folder. Select *"Run as administrator"* from the Windows context menu. This helps register all the file types for your new player.
 
