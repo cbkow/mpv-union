@@ -160,7 +160,7 @@ local function run_transcode_img_mp4_lut(captured_fps, start_frame, lut_path)
     mp.osd_message("Transcoding started")
     local file_path, new_file_name = transcode_img_options()
     local versioned_file_name = versionFileName(new_file_name)
-    local args = {ffmpeg, "-framerate", captured_fps, "-start_number", start_frame, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "2", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-framerate", captured_fps, "-start_number", start_frame, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "4", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_img_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -201,7 +201,7 @@ local function transcode_mp4()
 
     local file_path = mp.get_property("path")
     local versioned_file_name = get_new_name(versioned_file_name)
-    local args = {ffmpeg, "-i", file_path, "-preset", "slow", "-g", "2", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-i", file_path, "-preset", "slow", "-g", "4", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -211,7 +211,7 @@ local function run_transcode_img_mp4(captured_fps, start_frame)
     mp.osd_message("Transcoding started")
     local file_path, new_file_name = transcode_img_options()
     local versioned_file_name = versionFileName(new_file_name)
-    local args = {ffmpeg, "-framerate", captured_fps, "-start_number", start_frame, "-i", file_path, "-preset", "slow", "-g", "2", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-framerate", captured_fps, "-start_number", start_frame, "-i", file_path, "-preset", "slow", "-g", "4", "-crf", "18", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_img_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -252,7 +252,7 @@ local function transcode_mp4_aces()
     local file_path = mp.get_property("path")
     local versioned_file_name = get_new_name(versioned_file_name)
     local lut_path = "lut3d=file='" .. fixC_homepath .. "/luts/ACEScg_to_sRGB.cube'"
-    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "2", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "1", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "4", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "1", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -268,7 +268,7 @@ local function transcode_mp4_aces_709()
     local file_path = mp.get_property("path")
     local versioned_file_name = get_new_name(versioned_file_name)
     local lut_path = "lut3d=file='" .. fixC_homepath .. "/luts/ACEScg_to_bt1886.cube'"
-    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "2", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "4", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -284,7 +284,7 @@ local function transcode_mp4_agx()
     local file_path = mp.get_property("path")
     local versioned_file_name = get_new_name(versioned_file_name)
     local lut_path = "lut3d=file='" .. fixC_homepath .. "/luts/AGX_to_sRGB.cube'"
-    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "2", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "1", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "4", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "1", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -300,7 +300,7 @@ local function transcode_mp4_agx_709()
     local file_path = mp.get_property("path")
     local versioned_file_name = get_new_name(versioned_file_name)
     local lut_path = "lut3d=file='" .. fixC_homepath .. "/luts/AGX_to_bt1886.cube'"
-    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "2", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "4", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -317,7 +317,7 @@ local function transcode_mp4_srgb()
     local versioned_file_name = get_new_name(versioned_file_name)
     local vf_extras = "zscale=transferin=bt709\\:transfer=iec61966-2-1\\:primariesin=709\\:primaries=709\\:w=0:h=0 ,"
     local lut_path = "lut3d=file='" .. fixC_homepath .. "/luts/rec709_to_sRGB.cube'"
-    local args = {ffmpeg, "-i", file_path, "-vf", vf_extras, "-preset", "slow", "-g", "2", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "1", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-i", file_path, "-vf", vf_extras, "-preset", "slow", "-g", "4", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "1", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -334,7 +334,7 @@ local function transcode_mp4_linear_srgb()
     local versioned_file_name = get_new_name(versioned_file_name)
     local vf_extras = "zscale=transferin=bt709\\:transfer=iec61966-2-1\\:primariesin=709\\:primaries=709\\:w=0:h=0 ,"
     local lut_path = "lut3d=file='" .. fixC_homepath .. "/luts/Linear_to_sRGB.cube'"
-    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "2", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "4", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_mp4_cmd(args, file_path, versioned_file_name)
 end
@@ -351,7 +351,7 @@ local function transcode_mp4_linear_709()
     local versioned_file_name = get_new_name(versioned_file_name)
     local vf_extras = "zscale=transferin=bt709\\:transfer=iec61966-2-1\\:primariesin=709\\:primaries=709\\:w=0:h=0 ,"
     local lut_path = "lut3d=file='" .. fixC_homepath .. "/luts/Linear_to_Rec1886.cube'"
-    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "2", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
+    local args = {ffmpeg, "-i", file_path, "-vf", lut_path, "-preset", "slow", "-g", "4", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-pix_fmt", "yuv420p", "-movflags", "write_colr+write_gama+faststart", "-color_trc", "2", "-color_primaries", "1", "-colorspace", "1", "-y", versioned_file_name}
     
     transcode_mp4_cmd(args, file_path, versioned_file_name)
 end
