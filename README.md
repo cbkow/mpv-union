@@ -40,7 +40,7 @@
 ### Using Chocolatey (recommended)
  Chocolatey is a package manager for Windows. The advantage of installing MPV this way is two-fold: (1) It will automatically add MPV to your path. (2) Updates are effortless.
 
-#### 1. Install Chocolatey
+#### 1. Install Chocolatey - https://chocolatey.org/
  - Open an Admin Powershell window and paste the following. Press enter. When you're finished, it will ask you to enter two more lines. Do them one by one and press enter after copy-pasting each line individually. Don't forget this last step.
 
 ```
