@@ -62,7 +62,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 We always render in rec.709 (gamma 2.4 or rec.1886), so by default, this config converts from rec.709 to sRGB for desktop viewing. You will find this annoying if your workflow involves day-to-day rendering in sRGB. To turn this off, open up `mpv.config` (in any text editor) and add a `# ` to the front of line 21: `lut=~~/luts/rec709_to_sRGB.cube` so that it looks like `# lut=~~/luts/rec709_to_sRGB.cube`. mpv will then open with no color transforms by default. 
 
 ## Find mpv...
-  ...and pin to your tasbar or start menu.
+  ...and pin to your taskbar or start menu.
 
 - Press the Windows key on your keyboard,search for MPV, and click "Show Location." This will show you the location of mpv.exe. You can right-click on that executable and pin it to the start menu or taskbar. 
 
